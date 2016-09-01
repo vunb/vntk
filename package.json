@@ -1,0 +1,25 @@
+{
+  "name": "vntk",
+  "version": "0.9.1",
+  "description": "Vietnamese language toolkit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Vunb/vntk.git"
+  },
+  "keywords": [
+    "vntk",
+    "vietnamese",
+    "toolkit",
+    "nlp"
+  ],
+  "author": "Vunb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vunb/vntk/issues"
+  },
+  "homepage": "https://github.com/vunb/vntk#readme"
+}
