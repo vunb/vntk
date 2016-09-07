@@ -27,7 +27,11 @@
   "homepage": "https://github.com/vunb/vntk",
   "dependencies": {
     "async": "2.0.1",
+    "bindings": "^1.2.1",
     "commander": "2.9.0",
     "lodash": "4.15.0"
+  },
+  "devDependencies": {
+    "nan": "^2.4.0"
   }
 }

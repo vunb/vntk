@@ -6,6 +6,7 @@
 
 var _ = require("lodash")
     , program = require("commander")
+    , vntk = require("../lib/vntk")
     , package = require("../package.json")
     ;
 
@@ -47,14 +48,25 @@ program
     .description("word segmentation")
     .option("-f, --file", "input is files")
     .action(function (text, options) {
-        console.log('text %s', text);
-        console.log('options %s', options.file);
-        console.log("typeof text: ", typeof text);
+        console.log('input: %s', text);
+        console.log('isfile: %s', !!options.file);
+        // console.log("typeof text: ", typeof text);
+
+        // check input
         var input = text + "";
         if (!input) {
             console.log("input is required");
             this.emit("--help");
             return;
+        }
+
+        if (!options.file) {
+            text.forEach(function (e) {
+                var seg = vntk.ws.segment(e);
+                console.log("output:", seg);
+            }, this);
+        } else {
+            console.log("Not implemented!");
         }
 
     }).on("--help", function () {
