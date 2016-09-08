@@ -118,3 +118,5 @@ nbproject
 .idea
 .node_history
 .vscode
+obj
+build
