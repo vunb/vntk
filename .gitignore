@@ -119,4 +119,5 @@ nbproject
 .node_history
 .vscode
 obj
-build
+# build
+deps
