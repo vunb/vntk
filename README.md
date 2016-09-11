@@ -19,7 +19,7 @@ $ Chào_mừng bạn đến với đất_nước Việt_Nam
 
 ### Xử lý input là một tệp tin
 ```bash
-$ vntk ws -f demo.txt another.txt
+$ vntk ws demo.txt another.txt -f
 $ Result: demo.txt.seg, another.txt.seg
 ```
 
@@ -27,8 +27,12 @@ $ Result: demo.txt.seg, another.txt.seg
 ```javascript
 var vntk = require("vntk");
 
-vntk.ws("Chào mừng bạn đến với đất nước Việt Nam");
+vntk.ws.segment("Chào mừng bạn đến với đất nước Việt Nam");
 // Output: Chào_mừng bạn đến với đất_nước Việt_Nam
+
+vntk.ws.segmentF("ws_demo.txt");
+// Output: ws_demo.txt.seg
+
 ```
 
 LICENSE

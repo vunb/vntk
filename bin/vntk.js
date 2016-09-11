@@ -49,7 +49,7 @@ program
     .option("-f, --file", "input is files")
     .action(function (text, options) {
         console.log('input: %s', text);
-        console.log('isfile: %s', !!options.file);
+        console.log('isFile: %s', !!options.file);
         // console.log("typeof text: ", typeof text);
 
         // check input
@@ -63,17 +63,20 @@ program
         if (!options.file) {
             text.forEach(function (e) {
                 var seg = vntk.ws.segment(e);
-                console.log("output:", seg);
+                console.log("Output:", seg);
             }, this);
         } else {
-            console.log("Not implemented!");
+            text.forEach(function (e) {
+                var seg = vntk.ws.segmentF(e);
+                console.log(seg);
+            }, this);
         }
 
     }).on("--help", function () {
         console.log('  Examples:');
         console.log();
         console.log('    $ vntk segment "Chào mừng bạn đến với Việt Nam"');
-        console.log('    $ vntk segment -f test.txt another.txt');
+        console.log('    $ vntk segment test.txt another.txt -f');
         console.log();
     });
 
