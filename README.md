@@ -27,10 +27,10 @@ $ Result: demo.txt.seg, another.txt.seg
 ```javascript
 var vntk = require("vntk");
 
-vntk.ws.segment("Chào mừng bạn đến với đất nước Việt Nam");
+vntk.ws().segment("Chào mừng bạn đến với đất nước Việt Nam");
 // Output: Chào_mừng bạn đến với đất_nước Việt_Nam
 
-vntk.ws.segmentF("ws_demo.txt");
+vntk.ws().segmentF("ws_demo.txt");
 // Output: ws_demo.txt.seg
 
 ```

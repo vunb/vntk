@@ -62,12 +62,13 @@ program
 
         if (!options.file) {
             text.forEach(function (e) {
-                var seg = vntk.ws.segment(e);
+                console.log(e);
+                var seg = vntk.ws().segment(e);
                 console.log("Output:", seg);
             }, this);
         } else {
             text.forEach(function (e) {
-                var seg = vntk.ws.segmentF(e);
+                var seg = vntk.ws().segmentF(e);
                 console.log(seg);
             }, this);
         }
