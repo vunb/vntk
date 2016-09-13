@@ -28,7 +28,7 @@ $ Result: demo.txt.seg, another.txt.seg
 var vntk = require("vntk");
 
 vntk.ws().segment("Chào mừng bạn đến với đất nước Việt Nam");
-// Output: Chào_mừng bạn đến với đất_nước Việt_Nam
+// Output: Chào mừng bạn đến với đất_nước Việt_Nam
 
 vntk.ws().segmentF("ws_demo.txt");
 // Output: ws_demo.txt.seg
