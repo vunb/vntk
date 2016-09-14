@@ -2,9 +2,11 @@ var test = require("tape");
 var vntk = require("../../lib/vntk")
 
 test("utility functions", function (t) {
-    t.plan(3);
+    t.plan(4);
 
     t.equal(vntk.util.clean_html(`<span style="color: #4b67a1;">This is a demo</span>`), "This is a demo");
+    t.equal(vntk.util.clean_html(` <!--
+ -->`), "");
     t.equal(vntk.util.clean_html(`a<script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-xxxxxxxx-1']);
