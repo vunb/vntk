@@ -14,8 +14,7 @@ Vietnamese language toolkit
 
 Cách sử dụng các api / tiện ích dòng lệnh hỗ trợ xử lý tiếng Việt.
 
-1. Tiện ích tách từ
------
+## Tiện ích tách từ
 
 Chạy một tiện ích trong `vntk`, ví dụ cho bài toán tách từ tiếng Việt (word segmentation) như sau:
 
@@ -44,8 +43,7 @@ ws.segmentF("ws_demo.txt");
 
 ```
 
-2. Tiện ích làm sạch văn bản
------
+## Tiện ích làm sạch văn bản
 
 ### Xử lý input là một chuỗi
 ```bash
