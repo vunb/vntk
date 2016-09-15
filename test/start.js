@@ -5,7 +5,8 @@ var path = require('path');
  */
 var dir = '../test/specs/';
 [
-  'ws'
+  'ws',
+  'util'
 ].forEach((script) => {
   require(path.join(dir, script));
 });

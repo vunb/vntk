@@ -1,6 +1,6 @@
 {
   "name": "vntk",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "Vietnamese language toolkit",
   "main": "index.js",
   "bin": {
@@ -29,6 +29,7 @@
     "async": "2.0.1",
     "bindings": "^1.2.1",
     "commander": "2.9.0",
+    "dongdu": "0.9.x",
     "lodash": "4.15.0"
   },
   "devDependencies": {
