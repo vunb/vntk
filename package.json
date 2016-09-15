@@ -29,7 +29,7 @@
     "async": "2.0.1",
     "bindings": "^1.2.1",
     "commander": "2.9.0",
-    "dongdu": "0.9.2",
+    "dongdu": "0.9.x",
     "lodash": "4.15.0"
   },
   "devDependencies": {
