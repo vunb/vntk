@@ -60,16 +60,18 @@ program
             this.emit("--help");
             return;
         }
+        
+        var ws = vntk.ws();
 
         if (!options.file) {
             text.forEach(function (e) {
                 console.log(e);
-                var seg = vntk.ws().segment(e);
+                var seg = ws.segment(e);
                 console.log("Output:", seg);
             }, this);
         } else {
             text.forEach(function (e) {
-                var seg = vntk.ws().segmentF(e);
+                var seg = ws.segmentF(e);
                 console.log(seg);
             }, this);
         }
