@@ -3,6 +3,8 @@
 Vietnamese language toolkit
 
 [![npm version](https://img.shields.io/npm/v/vntk.svg?style=flat)](https://www.npmjs.com/package/vntk)
+[![Travis](https://travis-ci.org/Vunb/vntk.svg?branch=master)](https://travis-ci.org/Vunb/vntk)
+[![Appveyor](https://ci.appveyor.com/api/projects/status/3xej24k2f9qlm2v8/branch/master?svg=true)](https://ci.appveyor.com/project/Vunb/vntk/branch/master)
 
 
 # Installation In A Nutshell
