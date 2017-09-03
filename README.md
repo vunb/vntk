@@ -43,6 +43,9 @@ ws.segment("Chào mừng bạn đến với đất nước Việt Nam");
 ws.segmentF("ws_demo.txt");
 // Output: ws_demo.txt.seg
 
+ws.tokenize('Xin chào Việt Nam')
+// Output: ['Xin', 'chào', 'Việt Nam']
+
 ```
 
 ## Tiện ích làm sạch văn bản
