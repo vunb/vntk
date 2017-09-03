@@ -1,6 +1,6 @@
 {
   "name": "vntk",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Vietnamese language toolkit",
   "main": "index.js",
   "bin": {
