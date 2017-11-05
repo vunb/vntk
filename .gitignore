@@ -122,3 +122,4 @@ obj
 # build
 deps
 package-lock.json
+test.js
