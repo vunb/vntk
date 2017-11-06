@@ -10,6 +10,7 @@ var dir = '../test/specs/';
   'normalizer',
   'word_sent',
   'pos_tag',
+  'chunking',
 ].forEach((script) => {
   require(path.join(dir, script));
 });

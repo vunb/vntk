@@ -4,7 +4,7 @@ var test = require('tape'),
     pos = vntk.pos_tag;
 
 test('pos_tag simple case', function (t) {
-    t.plan(1);
+    t.plan(2);
 
     let text = 'Cán bộ xã và những chiêu "xin làm hộ nghèo" cười ra nước mắt';
     let tags = pos.tag(text);
@@ -25,5 +25,6 @@ test('pos_tag simple case', function (t) {
         ['nước mắt', 'N']
     ];
 
+    t.deepEqual(pos.tag(''), [], 'empty string');
     t.deepEqual(tags, expected, text);
 });

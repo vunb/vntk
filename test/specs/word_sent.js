@@ -1,3 +1,4 @@
+'use strict';
 var test = require('tape'),
     vntk = require('../../lib/vntk'),
     ws = vntk.word_sent;
