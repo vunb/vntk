@@ -11,6 +11,7 @@ var dir = '../test/specs/';
   'word_sent',
   'pos_tag',
   'chunking',
+  'ner',
 ].forEach((script) => {
   require(path.join(dir, script));
 });
