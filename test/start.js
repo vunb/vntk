@@ -7,7 +7,8 @@ var dir = '../test/specs/';
 [
   'util',
   'tokenizer',
-  'normalizer'
+  'normalizer',
+  'word_sent'
 ].forEach((script) => {
   require(path.join(dir, script));
 });
