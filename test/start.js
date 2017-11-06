@@ -5,10 +5,13 @@ var path = require('path');
  */
 var dir = '../test/specs/';
 [
-  'ws',
   'util',
-  'tokenizer_vi',
-  'normalizer'
+  'tokenizer',
+  'normalizer',
+  'word_sent',
+  'pos_tag',
+  'chunking',
+  'ner',
 ].forEach((script) => {
   require(path.join(dir, script));
 });
