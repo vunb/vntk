@@ -61,17 +61,17 @@ program
             return;
         }
         
-        var ws = vntk.ws();
+        var ws = vntk.word_sent;
 
         if (!options.file) {
             text.forEach(function (e) {
                 console.log(e);
-                var seg = ws.segment(e);
+                var seg = ws.tag(e, 'text');
                 console.log("Output:", seg);
             }, this);
         } else {
             text.forEach(function (e) {
-                var seg = ws.segmentF(e);
+                var seg = ws.tag(e);
                 console.log(seg);
             }, this);
         }
