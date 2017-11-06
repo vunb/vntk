@@ -1,3 +1,4 @@
+'use strict';
 var test = require('tape'),
     vntk = require('../../lib/vntk'),
     pos = vntk.pos_tag;
