@@ -1,7 +1,6 @@
-var test = require('tape')
-    , vntk = require('../../lib/vntk')
-    , ws = vntk.word_sent
-    ;
+var test = require('tape'),
+    vntk = require('../../lib/vntk'),
+    ws = vntk.word_sent;
 
 test('word_sent simple case', function (t) {
     t.plan(9);
