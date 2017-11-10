@@ -39,7 +39,7 @@ console.log(tokenizer.tokenize('Giá khuyến mãi: 140.000đ / kg  ==> giảm �
 // [ 'Giá', 'khuyến', 'mãi', ':', '140.000', 'đ', '/', 'kg', '==>', 'giảm', 'được', '20', '%' ]
 
 console.log(tokenizer.stokenize('Giá khuyến mãi: 140.000đ / kg  ==> giảm được 20%'))
-// Giá khuyến mãi : 140.000 đ / kg ==> giảm được 20
+// Giá khuyến mãi : 140.000 đ / kg ==> giảm được 20 %
 ```
 
 Command line: `vntk tok <file_name.txt>`
