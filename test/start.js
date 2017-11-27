@@ -13,6 +13,7 @@ var dir = '../test/specs/';
   'chunking',
   'ner',
   'tfidf',
+  'bayes_classifier',
 ].forEach((script) => {
   require(path.join(dir, script));
 });
