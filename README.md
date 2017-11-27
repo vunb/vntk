@@ -23,6 +23,7 @@ If you are interested in contributing to **vntk**, or just hacking on it, then f
 * [4. Chunking](#4-chunking)
 * [5. Named Entity Recognition](#5-named-entity-recognition)
 * [6. Utility](#6-utility)
+* [7. TF-IDF](#7-tf-idf)
 
 ## 1. Tokenizer
 
@@ -154,6 +155,45 @@ util.clean_html("<span style='color: #4b67a1;'>Xin chào!!!</span>");
 ```bash
 # command line
 vntk clean <file_name1.txt>
+```
+
+## 7. TF-IDF
+
+[Term Frequency–Inverse Document Frequency (tf-idf)](http://en.wikipedia.org/wiki/Tf%E2%80%93idf) is implemented to determine how important a word (or words) is to a document relative to a corpus. See following example.
+
+```js
+var vntk = require('./lib/vntk');
+var tfidf = new vntk.TfIdf();
+
+tfidf.addDocument('Đại tướng Trần Đại Quang - Ủy viên Bộ Chính trị, Bí thư Đảng ủy Công an Trung ương, Bộ trưởng Bộ Công an.');
+tfidf.addDocument('Thượng tướng Tô Lâm - Ủy viên Bộ Chính trị - Thứ trưởng Bộ Công an.');
+tfidf.addDocument('Thượng tướng Lê Quý Vương - Ủy viên Trung ương Đảng - Thứ trưởng Bộ Công an.');
+tfidf.addDocument('Thiếu tướng Bùi Mậu Quân - Phó Tổng cục trưởng Tổng cục An ninh');
+
+console.log('Bộ Công an --------------------------------');
+tfidf.tfidfs('Bộ Công an', function(i, measure) {
+    console.log('document #' + i + ' is ' + measure);
+});
+
+console.log('Tổng cục An ninh --------------------------------');
+tfidf.tfidfs('Tổng cục An ninh', function(i, measure) {
+    console.log('document #' + i + ' is ' + measure);
+});
+```
+
+The above output:
+
+```text
+Bộ Công an --------------------------------
+document #0 is 6.553712897371581
+document #1 is 3.7768564486857903
+document #2 is 2.7768564486857903
+document #3 is 0.7768564486857903
+Tổng cục An ninh --------------------------
+document #0 is 1.5537128973715806
+document #1 is 0.7768564486857903
+document #2 is 0.7768564486857903
+document #3 is 9.242592351485516
 ```
 
 # Contributing
