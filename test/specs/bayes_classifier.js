@@ -2,41 +2,26 @@
 const test = require('tape');
 const vntk = require('../../lib/vntk');
 
-test('perform binary classifcation', function (t) {
-    t.plan(2);
-
-    let classifier = new vntk.BayesClassifier();
-
-    classifier.addExample([1, 1, 1, 0, 0, 0], 'one');
-    classifier.addExample([1, 0, 1, 0, 0, 0], 'one');
-    classifier.addExample([1, 1, 1, 0, 0, 0], 'one');
-    classifier.addExample([0, 0, 0, 1, 1, 1], 'two');
-    classifier.addExample([0, 0, 0, 1, 0, 1], 'two');
-    classifier.addExample([0, 0, 0, 1, 1, 0], 'two');
-
-    classifier.train();
-
-    t.equal(classifier.classify([1, 1, 0, 0, 0, 0]), 'one');
-    t.equal(classifier.classify([0, 0, 0, 0, 1, 1]), 'two');
-
-})
-
 test('classify text', function (t) {
     t.plan(2);
 
     let classifier = new vntk.BayesClassifier();
 
-    classifier.addDocument('i fixed the box', 'computing');
-    classifier.addDocument('i write code', 'computing');
-    classifier.addDocument('nasty script code', 'computing');
-    classifier.addDocument('write a book', 'literature');
-    classifier.addDocument('read a book', 'literature');
-    classifier.addDocument('study the books', 'literature');
+    classifier.addDocument('khi nào trận chiến đã kết thúc?', 'when');
+    classifier.addDocument('tàu rời đi lúc mấy giờ?', 'when');
+    classifier.addDocument('trận đấu diễn ra vào thời gian nào?', 'when');
+    classifier.addDocument('anh ấy rời đi vào lúc mấy giờ?', 'when');
+    classifier.addDocument('bao giờ thì đến lễ hội hóa trang?', 'when');
+    classifier.addDocument('ai phát hiện ra điện ?', 'who');
+    classifier.addDocument('người sáng lập ra microsoft là ai?', 'who');
+    classifier.addDocument('ai kiếm được tiền của họ một cách chăm chỉ ?', 'who');
+    classifier.addDocument('người phát minh tạo ra.', 'who');
+    classifier.addDocument('gia đình bạn gồm những ai?', 'who');
 
     classifier.train();
     
 
-    t.equal(classifier.classify('a bug in the code'), 'computing');
-    t.equal(classifier.classify('read all the books'), 'literature');
+    t.equal(classifier.classify('chiến tranh thế giới bắt đầu vào lúc nào?'), 'when', 'classify when');
+    t.equal(classifier.classify('kẻ thù của luffy là ai?'), 'who', 'classify who');
 
 })
