@@ -24,6 +24,7 @@ If you are interested in contributing to **vntk**, or just hacking on it, then f
 * [5. Named Entity Recognition](#5-named-entity-recognition)
 * [6. Utility](#6-utility)
 * [7. TF-IDF](#7-tf-idf)
+* [8. Classifiers](#8-classifiers)
 
 ## 1. Tokenizer
 
@@ -194,6 +195,38 @@ document #0 is 1.5537128973715806
 document #1 is 0.7768564486857903
 document #2 is 0.7768564486857903
 document #3 is 9.242592351485516
+```
+
+## 8. Classifers
+
+[Naive Bayes](http://en.wikipedia.org/wiki/Naive_Bayes_classifier) is a classifier currently supported. [fastText](https://github.com/facebookresearch/fastText), will be added in the next release.
+
+The following examples use the **BayesClassifier** class:
+
+```js
+var vntk = require('vntk');
+
+var classifier = new vntk.BayesClassifier();
+
+classifier.addDocument('khi nào trận chiến đã kết thúc?', 'when');
+classifier.addDocument('tàu rời đi lúc mấy giờ?', 'when');
+classifier.addDocument('trận đấu diễn ra vào thời gian nào?', 'when');
+classifier.addDocument('anh ấy rời đi vào lúc mấy giờ?', 'when');
+classifier.addDocument('bao giờ thì đến lễ hội hóa trang?', 'when');
+classifier.addDocument('ai phát hiện ra điện ?', 'who');
+classifier.addDocument('người sáng lập ra microsoft là ai?', 'who');
+classifier.addDocument('ai kiếm được tiền của họ một cách chăm chỉ ?', 'who');
+classifier.addDocument('người phát minh tạo ra.', 'who');
+classifier.addDocument('gia đình bạn gồm những ai?', 'who');
+
+classifier.train();
+
+
+console.log(classifier.classify('chiến tranh thế giới bắt đầu vào lúc nào?'));
+// output: when
+
+console.log(classifier.classify('kẻ thù của luffy là ai?'));
+// output: who
 ```
 
 # Contributing
