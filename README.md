@@ -197,7 +197,7 @@ document #2 is 0.7768564486857903
 document #3 is 9.242592351485516
 ```
 
-## 8. Classifers
+## 8. Classifiers
 
 [Naive Bayes](http://en.wikipedia.org/wiki/Naive_Bayes_classifier) is a classifier currently supported. [fastText](https://github.com/facebookresearch/fastText), will be added in the next release.
 
