@@ -1,13 +1,24 @@
+os: unstable
 # Test against this version of Node.js
 environment:
-  nodejs_version: "4.4"
+  matrix:
+  - nodejs_version: "4"
+  - nodejs_version: "5"
+  - nodejs_version: "6"
+  - nodejs_version: "7"
+  - nodejs_version: "8"
+  - nodejs_version: "9"
+
+platform:
+  - x64
+  - x86
 
 # Install scripts. (runs after repo cloning)
 install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
   # install modules
-  - npm install --update-binary
+  - npm install
 
 # Post-install test scripts.
 test_script:

@@ -1,6 +1,16 @@
 language: node_js
+
+os:
+- linux
+- osx
+
 node_js:
-- "4.4"
+- '4'
+- '5'
+- '6'
+- '7'
+- '8'
+- '9'
 
 install:
-- npm install --update-binary
+- npm install
