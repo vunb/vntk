@@ -199,7 +199,7 @@ document #3 is 9.242592351485516
 
 ## 8. Classifiers
 
-[Naive Bayes](http://en.wikipedia.org/wiki/Naive_Bayes_classifier) is a classifier currently supported. [fastText](https://github.com/facebookresearch/fastText), will be added in the next release.
+[Naive Bayes](http://en.wikipedia.org/wiki/Naive_Bayes_classifier), [fastText](https://github.com/facebookresearch/fastText) are classifiers currently supported.
 
 The following examples use the **BayesClassifier** class:
 
@@ -227,6 +227,30 @@ console.log(classifier.classify('chiến tranh thế giới bắt đầu vào l�
 
 console.log(classifier.classify('kẻ thù của luffy là ai?'));
 // output: who
+```
+
+### FastText Classifier
+
+According to [fasttext.cc](https://fasttext.cc/docs/en/supervised-tutorial.html). We have a simple classifier for executing prediction models about `cooking` from stackexchange questions:
+
+```js
+const path = require('path');
+const vntk = require('vntk');
+
+const model = path.resolve(__dirname, './model_cooking.bin');
+const classifier = new vntk.FastTextClassifier(model);
+
+classifier.predict('Why not put knives in the dishwasher?', 5, (err, res) => {
+    if (err) {
+        console.error(err);
+    } else if (res.length > 0) {
+        let tag = res[0].label; // __label__knives
+        let confidence = res[0].value // 0.8787146210670471
+        console.log('classify', tag, confidence, res);
+    } else {
+        console.log('No matches');
+    }
+});
 ```
 
 # Contributing
