@@ -14,6 +14,7 @@ var dir = '../test/specs/';
   'ner',
   'tfidf',
   'bayes_classifier',
+  'langid',
 ].forEach((script) => {
   require(path.join(dir, script));
 });
