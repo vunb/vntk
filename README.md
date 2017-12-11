@@ -25,6 +25,7 @@ If you are interested in contributing to **vntk**, or just hacking on it, then f
 * [6. Utility](#6-utility)
 * [7. TF-IDF](#7-tf-idf)
 * [8. Classifiers](#8-classifiers)
+* [9. Language identification](#9-language-identification)
 
 ## 1. Tokenizer
 
@@ -199,7 +200,7 @@ document #3 is 9.242592351485516
 
 ## 8. Classifiers
 
-[Naive Bayes](http://en.wikipedia.org/wiki/Naive_Bayes_classifier) is a classifier currently supported. [fastText](https://github.com/facebookresearch/fastText), will be added in the next release.
+[Naive Bayes](http://en.wikipedia.org/wiki/Naive_Bayes_classifier), [fastText](https://github.com/facebookresearch/fastText) are classifiers currently supported.
 
 The following examples use the **BayesClassifier** class:
 
@@ -228,6 +229,68 @@ console.log(classifier.classify('chiến tranh thế giới bắt đầu vào l�
 console.log(classifier.classify('kẻ thù của luffy là ai?'));
 // output: who
 ```
+
+### FastText Classifier
+
+According to [fasttext.cc](https://fasttext.cc/docs/en/supervised-tutorial.html). We have a simple classifier for executing prediction models about `cooking` from stackexchange questions:
+
+```js
+const path = require('path');
+const vntk = require('vntk');
+
+const model = path.resolve(__dirname, './model_cooking.bin');
+const classifier = new vntk.FastTextClassifier(model);
+
+classifier.predict('Why not put knives in the dishwasher?', 5, (err, res) => {
+    if (err) {
+        console.error(err);
+    } else if (res.length > 0) {
+        let tag = res[0].label; // __label__knives
+        let confidence = res[0].value // 0.8787146210670471
+        console.log('classify', tag, confidence, res);
+    } else {
+        console.log('No matches');
+    }
+});
+```
+
+## 9. Language identification
+
+**VNTK Langid** can identify 176 languages from text samples and return confidence scores for each (see the list of ISO codes below). This model was trained by [fastText](https://fasttext.cc/docs/en/language-identification.html) on data from Wikipedia, Tatoeba and SETimes, used under CC-BY-SA.
+
+Api usage example:
+
+* langid.detect([input])
+* langid.getLanguages([input, num, callback])
+* langid.langids - list of supported languages
+
+```js
+const langid = require('vntk').Langid;
+
+// returns the most accuracy language detected
+langid.detect('sử dụng vntk với fastext rất tuyệt?')
+    .then((lid) => {
+        console.log(lid)
+        // vi
+    });
+
+// returns the list of detectable languages
+langid.getLanguages('Wie lange bleiben Sie?', 5)
+    .then((res) => {
+        let lid = res[0].label;
+        t.equal(lid, 'de', 'German');
+        t.equal(res.length, 5, 'number of languagues are detected');
+        console.log(res)
+    });
+
+// returns list of supported languagues
+console.log(langid.langids)
+```
+
+
+List of supported languages
+
+> af als am an ar arz as ast av az azb ba bar bcl be bg bh bn bo bpy br bs bxr ca cbk ce ceb ckb co cs cv cy da de diq dsb dty dv el eml en eo es et eu fa fi fr frr fy ga gd gl gn gom gu gv he hi hif hr hsb ht hu hy ia id ie ilo io is it ja jbo jv ka kk km kn ko krc ku kv kw ky la lb lez li lmo lo lrc lt lv mai mg mhr min mk ml mn mr mrj ms mt mwl my myv mzn nah nap nds ne new nl nn no oc or os pa pam pfl pl pms pnb ps pt qu rm ro ru rue sa sah sc scn sco sd sh si sk sl so sq sr su sv sw ta te tg th tk tl tr tt tyv ug uk ur uz vec vep vi vls vo wa war wuu xal xmf yi yo yue zh
 
 # Contributing
 
