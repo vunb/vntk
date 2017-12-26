@@ -2,10 +2,11 @@
 
 Vietnamese NLP Toolkit for Node
 
+[![Join the chat at https://gitter.im/vntk/Lobby](https://badges.gitter.im/vntk/Lobby.svg)](https://gitter.im/vntk/Lobby)
 [![npm version](https://img.shields.io/npm/v/vntk.svg?style=flat)](https://www.npmjs.com/package/vntk)
 [![npm downloads](https://img.shields.io/npm/dm/vntk.svg)](https://www.npmjs.com/package/vntk)
 [![Travis](https://travis-ci.org/vunb/vntk.svg?branch=master)](https://travis-ci.org/vunb/vntk)
-[![Appveyor](https://ci.appveyor.com/api/projects/status/3xej24k2f9qlm2v8/branch/master?svg=true)](https://ci.appveyor.com/project/Vunb/vntk/branch/master)
+[![Appveyor](https://ci.appveyor.com/api/projects/status/3xej24k2f9qlm2v8/branch/master?svg=true)](https://ci.appveyor.com/project/vunb/vntk/branch/master)
 
 
 # Installation In A Nutshell
