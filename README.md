@@ -56,10 +56,23 @@ Command line: `vntk tok <file_name.txt>`
 var vntk = require('vntk');
 var word_sent = vntk.word_sent;
 
-console.log(word_sent.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội'))
+console.log(word_sent.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội'));
 // [ 'Chào mừng', 'các', 'bạn', 'trẻ', 'tới', 'thành phố', 'Hà Nội' ]
 
-console.log(word_sent.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội', 'text'))
+console.log(word_sent.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội', 'text'));
+// Chào_mừng các bạn trẻ tới thành_phố Hà_Nội
+```
+
+Load custom trained model:
+
+```js
+var path = require('path');
+var word_sent = require('vntk').word_sent;
+
+var new_model_path = path.resolve('path/to/model.bin');
+var new_word_sent = word_sent.newModel(new_model_path);
+
+console.log(new_word_sent.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội', 'text'));
 // Chào_mừng các bạn trẻ tới thành_phố Hà_Nội
 ```
 
@@ -86,6 +99,18 @@ console.log(pos_tag.tag('Chợ thịt chó nổi tiếng ở TP Hồ Chí Minh b
 //   [ 'Minh', 'Np' ],
 //   [ 'bị', 'V' ],
 //   [ 'truy quét', 'V' ] ]
+```
+
+Load custom trained model:
+
+```js
+var path = require('path');
+var pos_tag = require('vntk').pos_tag;
+
+var new_model_path = path.resolve('path/to/model.bin');
+var new_pos_tag = pos_tag.newModel(new_model_path);
+
+console.log(new_pos_tag.tag('Chợ thịt chó nổi tiếng ở TP Hồ Chí Minh bị truy quét'))
 ```
 
 Command line: `vntk pos <file_name.txt>`
@@ -116,6 +141,18 @@ console.log(chunking.tag('Nhật ký SEA Games ngày 21/8: Ánh Viên thắng gi
 //   [ '.', 'CH', 'O' ] ]
 ```
 
+Load custom trained model:
+
+```js
+var path = require('path');
+var chunking = require('vntk').chunking;
+
+var new_model_path = path.resolve('path/to/model.bin');
+var new_chunking = chunking.newModel(new_model_path);
+
+console.log(new_chunking.tag('Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại.'));
+```
+
 Command line: `vntk chunk <file_name.txt>`
 
 ## 5. Named Entity Recognition
@@ -138,6 +175,18 @@ console.log(ner.tag('Chưa tiết lộ lịch trình tới Việt Nam của Tổ
 //   [ 'Mỹ', 'Np', 'B-NP', 'B-LOC' ],
 //   [ 'Donald', 'Np', 'B-NP', 'B-PER' ],
 //   [ 'Trump', 'Np', 'B-NP', 'I-PER' ] ]
+```
+
+Load custom trained model:
+
+```js
+var path = require('path');
+var ner = require('vntk').ner;
+
+var new_model_path = path.resolve('path/to/model.bin');
+var new_ner = ner.newModel(new_model_path);
+
+console.log(new_ner.tag('Chưa tiết lộ lịch trình tới Việt Nam của Tổng thống Mỹ Donald Trump'))
 ```
 
 Command line: `vntk ner <file_name.txt>`
