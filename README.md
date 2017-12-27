@@ -24,6 +24,8 @@ If you are interested in contributing to **vntk**, or just hacking on it, then f
 * [4. Chunking](#4-chunking)
 * [5. Named Entity Recognition](#5-named-entity-recognition)
 * [6. Utility](#6-utility)
+  * [Dictionary](#dictionary)
+  * [Clean html](#clean-html)
 * [7. TF-IDF](#7-tf-idf)
 * [8. Classifiers](#8-classifiers)
 * [9. Language identification](#9-language-identification)
@@ -194,13 +196,49 @@ Command line: `vntk ner <file_name.txt>`
 
 ## 6. Utility
 
+### Dictionary
+
+* Check a word is exists in dictionary
+
+```js
+var vntk = require('vntk');
+var dictionary = vntk.getDictionary();
+
+dictionary.has('chào');
+// true
+```
+
+* Lookup word definitons
+
+```js
+var vntk = require('vntk');
+var dictionary = vntk.getDictionary();
+
+var senses = dictionary.lookup('chào');
+console.log(senses);
+
+// Output
+[ { example: 'chào thầy giáo ~ con chào mẹ',
+    sub_pos: 'Vt',
+    definition: 'tỏ thái độ kính trọng hoặc quan tâm đối với ai bằng lời nói hay cử chỉ, khi gặp nhau hoặc khi từ biệt',
+    pos: 'V' },
+    { example: 'đứng nghiêm làm lễ chào cờ',
+    sub_pos: 'Vu',
+    definition: 'tỏ thái độ kính cẩn trước cái gì thiêng liêng, cao quý',
+    pos: 'V' },
+    { example: 'chào hàng ~ lời chào cao hơn mâm cỗ (tng)',
+    sub_pos: 'Vu',
+    definition: 'mời ăn uống hoặc mua hàng',
+    pos: 'V' }]
+```
+
 ### Clean html
 
 ```javascript
-var vntk = require("vntk");
+var vntk = require('vntk');
 var util = vntk.util;
 
-util.clean_html("<span style='color: #4b67a1;'>Xin chào!!!</span>");
+util.clean_html('<span style="color: #4b67a1;">Xin chào!!!</span>');
 // Xin chào!!!
 ```
 
