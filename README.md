@@ -28,6 +28,8 @@ If you are interested in contributing to **vntk**, or just hacking on it, then f
   * [Clean html](#clean-html)
 * [7. TF-IDF](#7-tf-idf)
 * [8. Classifiers](#8-classifiers)
+  * [Naive Bayes](#bayes-classifier)
+  * [fastText](#fasttext-classifier)
 * [9. Language identification](#9-language-identification)
 
 ## 1. Tokenizer
@@ -289,6 +291,8 @@ document #3 is 9.242592351485516
 ## 8. Classifiers
 
 [Naive Bayes](http://en.wikipedia.org/wiki/Naive_Bayes_classifier), [fastText](https://github.com/facebookresearch/fastText) are classifiers currently supported.
+
+### Bayes Classifier
 
 The following examples use the **BayesClassifier** class:
 
