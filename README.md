@@ -2,10 +2,11 @@
 
 Vietnamese NLP Toolkit for Node
 
+[![Join the chat at https://gitter.im/vntk/Lobby](https://badges.gitter.im/vntk/Lobby.svg)](https://gitter.im/vntk/Lobby)
 [![npm version](https://img.shields.io/npm/v/vntk.svg?style=flat)](https://www.npmjs.com/package/vntk)
 [![npm downloads](https://img.shields.io/npm/dm/vntk.svg)](https://www.npmjs.com/package/vntk)
 [![Travis](https://travis-ci.org/vunb/vntk.svg?branch=master)](https://travis-ci.org/vunb/vntk)
-[![Appveyor](https://ci.appveyor.com/api/projects/status/3xej24k2f9qlm2v8/branch/master?svg=true)](https://ci.appveyor.com/project/Vunb/vntk/branch/master)
+[![Appveyor](https://ci.appveyor.com/api/projects/status/3xej24k2f9qlm2v8/branch/master?svg=true)](https://ci.appveyor.com/project/vunb/vntk/branch/master)
 
 
 # Installation In A Nutshell
@@ -23,8 +24,12 @@ If you are interested in contributing to **vntk**, or just hacking on it, then f
 * [4. Chunking](#4-chunking)
 * [5. Named Entity Recognition](#5-named-entity-recognition)
 * [6. Utility](#6-utility)
+  * [Dictionary](#dictionary)
+  * [Clean html](#clean-html)
 * [7. TF-IDF](#7-tf-idf)
 * [8. Classifiers](#8-classifiers)
+  * [Naive Bayes](#bayes-classifier)
+  * [fastText](#fasttext-classifier)
 * [9. Language identification](#9-language-identification)
 
 ## 1. Tokenizer
@@ -193,13 +198,49 @@ Command line: `vntk ner <file_name.txt>`
 
 ## 6. Utility
 
+### Dictionary
+
+* Check a word is exists in dictionary
+
+```js
+var vntk = require('vntk');
+var dictionary = vntk.getDictionary();
+
+dictionary.has('chào');
+// true
+```
+
+* Lookup word definitons
+
+```js
+var vntk = require('vntk');
+var dictionary = vntk.getDictionary();
+
+var senses = dictionary.lookup('chào');
+console.log(senses);
+
+// Output
+[ { example: 'chào thầy giáo ~ con chào mẹ',
+    sub_pos: 'Vt',
+    definition: 'tỏ thái độ kính trọng hoặc quan tâm đối với ai bằng lời nói hay cử chỉ, khi gặp nhau hoặc khi từ biệt',
+    pos: 'V' },
+    { example: 'đứng nghiêm làm lễ chào cờ',
+    sub_pos: 'Vu',
+    definition: 'tỏ thái độ kính cẩn trước cái gì thiêng liêng, cao quý',
+    pos: 'V' },
+    { example: 'chào hàng ~ lời chào cao hơn mâm cỗ (tng)',
+    sub_pos: 'Vu',
+    definition: 'mời ăn uống hoặc mua hàng',
+    pos: 'V' }]
+```
+
 ### Clean html
 
 ```javascript
-var vntk = require("vntk");
+var vntk = require('vntk');
 var util = vntk.util;
 
-util.clean_html("<span style='color: #4b67a1;'>Xin chào!!!</span>");
+util.clean_html('<span style="color: #4b67a1;">Xin chào!!!</span>');
 // Xin chào!!!
 ```
 
@@ -250,6 +291,8 @@ document #3 is 9.242592351485516
 ## 8. Classifiers
 
 [Naive Bayes](http://en.wikipedia.org/wiki/Naive_Bayes_classifier), [fastText](https://github.com/facebookresearch/fastText) are classifiers currently supported.
+
+### Bayes Classifier
 
 The following examples use the **BayesClassifier** class:
 
