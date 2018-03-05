@@ -23,6 +23,9 @@ If you are interested in contributing to **vntk**, or just hacking on it, then f
 * [3. POS Tagging](#3-pos-tagging)
 * [4. Chunking](#4-chunking)
 * [5. Named Entity Recognition](#5-named-entity-recognition)
+  * [PER LOC ORG](#ner-per-loc-org)
+  * [Date time](#ner-date-time)
+  * [Custom NER](#ner-custom)
 * [6. Utility](#6-utility)
   * [Dictionary](#dictionary)
   * [Clean html](#clean-html)
@@ -357,7 +360,7 @@ Api usage example:
 * langid.langids - list of supported languages
 
 ```js
-const langid = require('vntk').Langid;
+const langid = require('vntk').Langid();
 
 // returns the most accuracy language detected
 langid.detect('sử dụng vntk với fastext rất tuyệt?')
