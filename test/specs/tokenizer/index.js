@@ -1,6 +1,6 @@
 'use strict'
 var test = require('tape')
-var tokenizer = require('../../../lib/tokenizer')
+var tokenizer = require('../../../lib/vntk').tokenizer()
 
 
 test('vntk tokenizer', function (t) {

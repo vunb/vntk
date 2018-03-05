@@ -1,13 +1,14 @@
 var test = require("tape");
-var vntk = require("../../lib/vntk")
+var vntk = require("../../lib/vntk");
+var util = vntk.util();
 
 test("utility functions", function (t) {
     t.plan(4);
 
-    t.equal(vntk.util.clean_html(`<span style="color: #4b67a1;">This is a demo</span>`), "This is a demo");
-    t.equal(vntk.util.clean_html(` <!--
+    t.equal(util.clean_html(`<span style="color: #4b67a1;">This is a demo</span>`), "This is a demo");
+    t.equal(util.clean_html(` <!--
  -->`), "");
-    t.equal(vntk.util.clean_html(`a<script type="text/javascript">
+    t.equal(util.clean_html(`a<script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-xxxxxxxx-1']);
       _gaq.push(['_trackPageview']);
@@ -27,7 +28,7 @@ test("utility functions", function (t) {
         s.parentNode.insertBefore(ga, s);
       })();
     </script>bc`), `abc`);
-    t.equal(vntk.util.clean_html(`<h2><span style="color: #4b67a1;">This is a demo</span> - <span style="color: #008000;">You can edit the text! <img src="/images/smiley.png" alt="laughing" /> &hearts;</span></h2>
+    t.equal(util.clean_html(`<h2><span style="color: #4b67a1;">This is a demo</span> - <span style="color: #008000;">You can edit the text! <img src="/images/smiley.png" alt="laughing" /> &hearts;</span></h2>
 <p>Type in the <strong>visual editor</strong> on the left or the <strong>source editor</strong> on the right and see them both change in real time.</p>
 <p>Set up the cleaning preferences below and click the <strong style="box-shadow: 3px 3px 3px #aaa; border-radius: 5px; padding: 0 5px; background-color: #2b3a56; color: #fff;"> Clean HTML</strong> button to clean the HTML source code.</p>
 <!--This is just a comment above the table...-->

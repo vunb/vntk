@@ -44,7 +44,7 @@ Example:
 
 ```js
 var vntk = require('vntk');
-var tokenizer = vntk.tokenizer;
+var tokenizer = vntk.tokenizer();
 
 console.log(tokenizer.tokenize('Giá khuyến mãi: 140.000đ / kg  ==> giảm được 20%'))
 // [ 'Giá', 'khuyến', 'mãi', ':', '140.000', 'đ', '/', 'kg', '==>', 'giảm', 'được', '20', '%' ]
@@ -62,7 +62,7 @@ Command line: `vntk tok <file_name.txt>`
 
 ```js
 var vntk = require('vntk');
-var word_sent = vntk.word_sent;
+var word_sent = vntk.wordSent();
 
 console.log(word_sent.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội'));
 // [ 'Chào mừng', 'các', 'bạn', 'trẻ', 'tới', 'thành phố', 'Hà Nội' ]
@@ -74,13 +74,10 @@ console.log(word_sent.tag('Chào mừng các bạn trẻ tới thành phố Hà 
 Load custom trained model:
 
 ```js
-var path = require('path');
-var word_sent = require('vntk').word_sent;
+var vntk = require('vntk');
+var word_sent = vntk.wordSent(new_model_path);
 
-var new_model_path = path.resolve('path/to/model.bin');
-var new_word_sent = word_sent.newModel(new_model_path);
-
-console.log(new_word_sent.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội', 'text'));
+console.log(word_sent.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội', 'text'));
 // Chào_mừng các bạn trẻ tới thành_phố Hà_Nội
 ```
 
@@ -88,12 +85,12 @@ Command line: `vntk ws <file_name.txt>`
 
 ## 3. POS Tagging
 
-> Vietnamese Part of Speech Tagging using Conditional Random Fields, called: `pos_tag`.  
+> Vietnamese Part of Speech Tagging using Conditional Random Fields, called: `posTag`.  
 > Pos_Tag helps labeling the part of speech of sentences!
 
 ```js
 var vntk = require('vntk');
-var pos_tag = vntk.pos_tag;
+var pos_tag = vntk.posTag();
 
 console.log(pos_tag.tag('Chợ thịt chó nổi tiếng ở TP Hồ Chí Minh bị truy quét'))
 // [ [ 'Chợ', 'N' ],
@@ -112,13 +109,10 @@ console.log(pos_tag.tag('Chợ thịt chó nổi tiếng ở TP Hồ Chí Minh b
 Load custom trained model:
 
 ```js
-var path = require('path');
-var pos_tag = require('vntk').pos_tag;
+var vntk = require('vntk');
+var pos_tag = vntk.posTag(new_model_path);
 
-var new_model_path = path.resolve('path/to/model.bin');
-var new_pos_tag = pos_tag.newModel(new_model_path);
-
-console.log(new_pos_tag.tag('Chợ thịt chó nổi tiếng ở TP Hồ Chí Minh bị truy quét'))
+console.log(pos_tag.tag('Chợ thịt chó nổi tiếng ở TP Hồ Chí Minh bị truy quét'))
 ```
 
 Command line: `vntk pos <file_name.txt>`
@@ -130,7 +124,7 @@ Command line: `vntk pos <file_name.txt>`
 
 ```js
 var vntk = require('vntk');
-var chunking = vntk.chunking;
+var chunking = vntk.chunking();
 
 console.log(chunking.tag('Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại.'))
 // [ [ 'Nhật ký', 'N', 'B-NP' ],
@@ -152,13 +146,10 @@ console.log(chunking.tag('Nhật ký SEA Games ngày 21/8: Ánh Viên thắng gi
 Load custom trained model:
 
 ```js
-var path = require('path');
-var chunking = require('vntk').chunking;
+var vntk = require('vntk');
+var chunking = vntk.chunking(new_model_path);
 
-var new_model_path = path.resolve('path/to/model.bin');
-var new_chunking = chunking.newModel(new_model_path);
-
-console.log(new_chunking.tag('Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại.'));
+console.log(chunking.tag('Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại.'));
 ```
 
 Command line: `vntk chunk <file_name.txt>`
@@ -170,7 +161,7 @@ Command line: `vntk chunk <file_name.txt>`
 
 ```js
 var vntk = require('vntk');
-var ner = vntk.ner;
+var ner = vntk.ner();
 
 console.log(ner.tag('Chưa tiết lộ lịch trình tới Việt Nam của Tổng thống Mỹ Donald Trump'))
 // [ [ 'Chưa', 'R', 'O', 'O' ],
@@ -188,13 +179,10 @@ console.log(ner.tag('Chưa tiết lộ lịch trình tới Việt Nam của Tổ
 Load custom trained model:
 
 ```js
-var path = require('path');
-var ner = require('vntk').ner;
+var vntk = require('vntk');
+var ner = vntk.ner(new_model_path);
 
-var new_model_path = path.resolve('path/to/model.bin');
-var new_ner = ner.newModel(new_model_path);
-
-console.log(new_ner.tag('Chưa tiết lộ lịch trình tới Việt Nam của Tổng thống Mỹ Donald Trump'))
+console.log(ner.tag('Chưa tiết lộ lịch trình tới Việt Nam của Tổng thống Mỹ Donald Trump'))
 ```
 
 Command line: `vntk ner <file_name.txt>`
@@ -241,7 +229,7 @@ console.log(senses);
 
 ```javascript
 var vntk = require('vntk');
-var util = vntk.util;
+var util = vntk.util();
 
 util.clean_html('<span style="color: #4b67a1;">Xin chào!!!</span>');
 // Xin chào!!!
