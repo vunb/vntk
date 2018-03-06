@@ -17,6 +17,8 @@ platform:
 install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
+  # update npm to latest
+  - npm install -g npm@latest
   # install modules
   - npm install
 
