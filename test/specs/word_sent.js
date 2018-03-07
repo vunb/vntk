@@ -1,7 +1,7 @@
 'use strict';
 var test = require('tape'),
     vntk = require('../../lib/vntk'),
-    ws = vntk.word_sent;
+    ws = vntk.wordSent();
 
 test('word_sent simple case', function (t) {
     t.plan(9);

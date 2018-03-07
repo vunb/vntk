@@ -1,7 +1,7 @@
 'use strict';
 var test = require('tape'),
     vntk = require('../../lib/vntk'),
-    chunking = vntk.chunking;
+    chunking = vntk.chunking();
 
 test('chunking simple case', function (t) {
     t.plan(2);
