@@ -1,9 +1,9 @@
 'use strict';
 var test = require('tape'),
-    vntk = require('../../lib/vntk'),
-    ws = vntk.wordSent();
+    vntk = require('../../../lib/vntk'),
+    ws = vntk.wordTokenizer();
 
-test('word_sent simple case', function (t) {
+test('wordTokenizer simple case', function (t) {
     t.plan(9);
 
     t.equal(ws.tag('Thương mại và các sản phẩm cũng vậy.', 'text'), 'Thương_mại và các sản_phẩm cũng vậy .');
