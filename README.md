@@ -109,7 +109,8 @@ Load custom trained model:
 var vntk = require('vntk');
 var pos_tag = vntk.posTag(new_model_path);
 
-console.log(pos_tag.tag('Chợ thịt chó nổi tiếng ở TP Hồ Chí Minh bị truy quét'))
+console.log(pos_tag.tag('Cán bộ xã và những chiêu "xin làm hộ nghèo" cười ra nước mắt', 'text'))
+// [N Cán bộ] [N xã] [C và] [L những] [N chiêu] [CH "] [V xin] [V làm] [N hộ] [A nghèo] [CH "] [V cười] [V ra] [N nước mắt]
 ```
 
 Command line: `vntk pos <file_name.txt>`
@@ -146,7 +147,8 @@ Load custom trained model:
 var vntk = require('vntk');
 var chunking = vntk.chunking(new_model_path);
 
-console.log(chunking.tag('Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại.'));
+console.log(chunking.tag('Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại.', 'text'));
+// [NP Nhật ký] [NP SEA] [NP Games] [NP ngày] [NP 21/8] : [NP Ánh Viên] [VP thắng] [NP giòn giã] [PP ở] [NP vòng] [NP loại] .
 ```
 
 Command line: `vntk chunk <file_name.txt>`
@@ -179,7 +181,8 @@ Load custom trained model:
 var vntk = require('vntk');
 var ner = vntk.ner(new_model_path);
 
-console.log(ner.tag('Chưa tiết lộ lịch trình tới Việt Nam của Tổng thống Mỹ Donald Trump'))
+console.log(ner.tag('Chưa tiết lộ lịch trình tới Việt Nam của Tổng thống Mỹ Donald Trump', 'text'))
+// Chưa  tiết lộ  lịch trình  tới [LOC Việt Nam] của  Tổng thống [LOC Mỹ] [PER Donald Trump]
 ```
 
 Command line: `vntk ner <file_name.txt>`
@@ -192,7 +195,7 @@ Command line: `vntk ner <file_name.txt>`
 
 ```js
 var vntk = require('vntk');
-var dictionary = vntk.getDictionary();
+var dictionary = vntk.dictionary();
 
 dictionary.has('chào');
 // true
@@ -202,7 +205,7 @@ dictionary.has('chào');
 
 ```js
 var vntk = require('vntk');
-var dictionary = vntk.getDictionary();
+var dictionary = vntk.dictionary();
 
 var senses = dictionary.lookup('chào');
 console.log(senses);

@@ -43,3 +43,15 @@ test('load custom model from file (2)', function (t) {
     t.deepEqual(tags[6][3], 'B-PER', 'B-PER from new model');
     t.deepEqual(tags[7][3], 'I-PER', 'I-PER from new model');
 });
+
+test('chucking format text', function (t) {
+    t.plan(1);
+
+    let text = 'Chưa tiết lộ lịch trình tới Việt Nam của Tổng thống Mỹ Donald Trump';
+    let expected = 'Chưa  tiết lộ  lịch trình  tới [LOC Việt Nam] của  Tổng thống [LOC Mỹ] [PER Donald Trump]';
+
+    let result = ner.tag(text, 'text');
+
+    t.equal(result, expected, expected);
+});
+

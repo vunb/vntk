@@ -28,3 +28,14 @@ test('pos_tag simple case', function (t) {
     t.deepEqual(pos.tag(''), [], 'empty string');
     t.deepEqual(tags, expected, text);
 });
+
+test('pos_tag format text', function (t) {
+    t.plan(1);
+
+    let text = 'Cán bộ xã và những chiêu "xin làm hộ nghèo" cười ra nước mắt';
+    let expected = '[N Cán bộ] [N xã] [C và] [L những] [N chiêu] [CH "] [V xin] [V làm] [N hộ] [A nghèo] [CH "] [V cười] [V ra] [N nước mắt]';
+
+    let result = pos.tag(text, 'text');
+
+    t.equal(result, expected, expected);
+});
