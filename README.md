@@ -37,7 +37,7 @@ If you are interested in contributing to **vntk**, or just hacking on it, then f
 
 ## 1. Tokenizer
 
-> Word Tokenizer using Regular Expression.  
+> Regex Tokenizer using Regular Expression.  
 > Tokenizer is provided to break text into arrays of tokens!
 
 Example:
@@ -57,27 +57,24 @@ Command line: `vntk tok <file_name.txt>`
 
 ## 2. Word Segmentation
 
-> Vietnamese Word Segmentation using Conditional Random Fields, called: `word_sent`.  
-> Word_Sent helps break text into arrays of words!
+> Vietnamese Word Segmentation using Conditional Random Fields, called: `Word Tokenizer`.  
+> wordTokenizer helps break text into arrays of words!
 
 ```js
 var vntk = require('vntk');
-var word_sent = vntk.wordSent();
+var tokenizer = vntk.wordTokenizer();
 
-console.log(word_sent.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội'));
+console.log(tokenizer.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội'));
 // [ 'Chào mừng', 'các', 'bạn', 'trẻ', 'tới', 'thành phố', 'Hà Nội' ]
-
-console.log(word_sent.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội', 'text'));
-// Chào_mừng các bạn trẻ tới thành_phố Hà_Nội
 ```
 
 Load custom trained model:
 
 ```js
 var vntk = require('vntk');
-var word_sent = vntk.wordSent(new_model_path);
+var tokenizer = vntk.wordTokenizer(new_model_path);
 
-console.log(word_sent.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội', 'text'));
+console.log(tokenizer.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội', 'text'));
 // Chào_mừng các bạn trẻ tới thành_phố Hà_Nội
 ```
 
