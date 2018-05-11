@@ -7,6 +7,7 @@
     "vntk": "./bin/vntk.js"
   },
   "scripts": {
+    "start": "node server/app.js",
     "test": "tape test/start.js | tap-spec"
   },
   "repository": {
@@ -39,5 +40,11 @@
     "nan": "^2.10.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.9.0"
-  }
+  },
+  "files": [
+    "bin",
+    "lib",
+    "index.js",
+    "README.md"
+  ]
 }
