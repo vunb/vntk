@@ -36,7 +36,7 @@
     "title-case": "^2.1.1"
   },
   "devDependencies": {
-    "nan": "^2.4.0",
+    "nan": "^2.10.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.9.0"
   }

@@ -348,7 +348,7 @@ Api usage example:
 * langid.langids - list of supported languages
 
 ```js
-const langid = require('vntk').Langid();
+const langid = require('vntk').langid();
 
 // returns the most accuracy language detected
 langid.detect('sử dụng vntk với fastext rất tuyệt?')
@@ -370,6 +370,12 @@ langid.getLanguages('Wie lange bleiben Sie?', 5)
 console.log(langid.langids)
 ```
 
+Load custom trained model:
+
+```js
+var vntk = require('vntk');
+var langid = vntk.langid(new_model_path);
+```
 
 List of supported languages
 

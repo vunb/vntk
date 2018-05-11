@@ -1,7 +1,7 @@
 'use strict';
 const test = require('tape');
 const vntk = require('../../lib/vntk');
-const dictionary = vntk.getDictionary();
+const dictionary = vntk.dictionary();
 
 test('vntk dictionary', function (t) {
     t.plan(1);
