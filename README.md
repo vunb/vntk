@@ -57,8 +57,8 @@ Command line: `vntk tok <file_name.txt>`
 
 ## 2. Word Segmentation
 
-> Vietnamese Word Segmentation using Conditional Random Fields, called: `Word Tokenizer`.  
-> wordTokenizer helps break text into arrays of words!
+> Vietnamese Word Segmentation using Conditional Random Fields, called: `WordTokenizer`.  
+> WordTokenizer helps break text into arrays of words!
 
 ```js
 var vntk = require('vntk');
