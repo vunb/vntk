@@ -37,7 +37,7 @@ If you are interested in contributing to **vntk**, or just hacking on it, then f
 
 ## 1. Tokenizer
 
-> Word Tokenizer using Regular Expression.  
+> Regex Tokenizer using Regular Expression.  
 > Tokenizer is provided to break text into arrays of tokens!
 
 Example:
@@ -57,27 +57,24 @@ Command line: `vntk tok <file_name.txt>`
 
 ## 2. Word Segmentation
 
-> Vietnamese Word Segmentation using Conditional Random Fields, called: `word_sent`.  
-> Word_Sent helps break text into arrays of words!
+> Vietnamese Word Segmentation using Conditional Random Fields, called: `WordTokenizer`.  
+> WordTokenizer helps break text into arrays of words!
 
 ```js
 var vntk = require('vntk');
-var word_sent = vntk.wordSent();
+var tokenizer = vntk.wordTokenizer();
 
-console.log(word_sent.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội'));
+console.log(tokenizer.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội'));
 // [ 'Chào mừng', 'các', 'bạn', 'trẻ', 'tới', 'thành phố', 'Hà Nội' ]
-
-console.log(word_sent.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội', 'text'));
-// Chào_mừng các bạn trẻ tới thành_phố Hà_Nội
 ```
 
 Load custom trained model:
 
 ```js
 var vntk = require('vntk');
-var word_sent = vntk.wordSent(new_model_path);
+var tokenizer = vntk.wordTokenizer(new_model_path);
 
-console.log(word_sent.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội', 'text'));
+console.log(tokenizer.tag('Chào mừng các bạn trẻ tới thành phố Hà Nội', 'text'));
 // Chào_mừng các bạn trẻ tới thành_phố Hà_Nội
 ```
 
@@ -112,7 +109,8 @@ Load custom trained model:
 var vntk = require('vntk');
 var pos_tag = vntk.posTag(new_model_path);
 
-console.log(pos_tag.tag('Chợ thịt chó nổi tiếng ở TP Hồ Chí Minh bị truy quét'))
+console.log(pos_tag.tag('Cán bộ xã và những chiêu "xin làm hộ nghèo" cười ra nước mắt', 'text'))
+// [N Cán bộ] [N xã] [C và] [L những] [N chiêu] [CH "] [V xin] [V làm] [N hộ] [A nghèo] [CH "] [V cười] [V ra] [N nước mắt]
 ```
 
 Command line: `vntk pos <file_name.txt>`
@@ -149,7 +147,8 @@ Load custom trained model:
 var vntk = require('vntk');
 var chunking = vntk.chunking(new_model_path);
 
-console.log(chunking.tag('Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại.'));
+console.log(chunking.tag('Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại.', 'text'));
+// [NP Nhật ký] [NP SEA] [NP Games] [NP ngày] [NP 21/8] : [NP Ánh Viên] [VP thắng] [NP giòn giã] [PP ở] [NP vòng] [NP loại] .
 ```
 
 Command line: `vntk chunk <file_name.txt>`
@@ -182,7 +181,8 @@ Load custom trained model:
 var vntk = require('vntk');
 var ner = vntk.ner(new_model_path);
 
-console.log(ner.tag('Chưa tiết lộ lịch trình tới Việt Nam của Tổng thống Mỹ Donald Trump'))
+console.log(ner.tag('Chưa tiết lộ lịch trình tới Việt Nam của Tổng thống Mỹ Donald Trump', 'text'))
+// Chưa  tiết lộ  lịch trình  tới [LOC Việt Nam] của  Tổng thống [LOC Mỹ] [PER Donald Trump]
 ```
 
 Command line: `vntk ner <file_name.txt>`
@@ -195,7 +195,7 @@ Command line: `vntk ner <file_name.txt>`
 
 ```js
 var vntk = require('vntk');
-var dictionary = vntk.getDictionary();
+var dictionary = vntk.dictionary();
 
 dictionary.has('chào');
 // true
@@ -205,7 +205,7 @@ dictionary.has('chào');
 
 ```js
 var vntk = require('vntk');
-var dictionary = vntk.getDictionary();
+var dictionary = vntk.dictionary();
 
 var senses = dictionary.lookup('chào');
 console.log(senses);
@@ -348,7 +348,7 @@ Api usage example:
 * langid.langids - list of supported languages
 
 ```js
-const langid = require('vntk').Langid();
+const langid = require('vntk').langid();
 
 // returns the most accuracy language detected
 langid.detect('sử dụng vntk với fastext rất tuyệt?')
@@ -370,6 +370,12 @@ langid.getLanguages('Wie lange bleiben Sie?', 5)
 console.log(langid.langids)
 ```
 
+Load custom trained model:
+
+```js
+var vntk = require('vntk');
+var langid = vntk.langid(new_model_path);
+```
 
 List of supported languages
 

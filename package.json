@@ -1,12 +1,13 @@
 {
   "name": "vntk",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Vietnamese NLP Toolkit for Node",
   "main": "index.js",
   "bin": {
     "vntk": "./bin/vntk.js"
   },
   "scripts": {
+    "start": "node server/app.js",
     "test": "tape test/start.js | tap-spec"
   },
   "repository": {
@@ -36,8 +37,14 @@
     "title-case": "^2.1.1"
   },
   "devDependencies": {
-    "nan": "^2.4.0",
+    "nan": "^2.10.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.9.0"
-  }
+  },
+  "files": [
+    "bin",
+    "lib",
+    "index.js",
+    "README.md"
+  ]
 }

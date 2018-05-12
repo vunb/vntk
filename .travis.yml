@@ -14,7 +14,7 @@ node_js:
 
 before_install:
 # update npm to latest
-- npm install -g npm@latest
+- npm install -g npm@5.7.1
 
 # show product version
 - nvm --version

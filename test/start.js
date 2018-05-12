@@ -8,7 +8,7 @@ var dir = '../test/specs/';
   'util',
   'tokenizer',
   'normalizer',
-  'word_sent',
+  'tokenizer/word_tokenizer',
   'pos_tag',
   'chunking',
   'ner',
