@@ -9,6 +9,14 @@ const ner = vntk.ner();
 // kites extension definition
 module.exports = function (kites) {
     kites.on('expressConfigure', (app) => {
+
+        /**
+         * API Homepage
+         */
+        app.get('/', (req, res) => {
+            res.send('This is an example Vntk Server!')
+        })
+
         /**
          * Word Tokenizer
          */

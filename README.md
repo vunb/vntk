@@ -16,6 +16,8 @@ Vietnamese NLP Toolkit for Node
 
 If you are interested in contributing to **vntk**, or just hacking on it, then fork it away!
 
+Jump to guide: [How to build an NLP API Server using Vntk](#nlp-api-server).
+
 # CLI Utilities
 
 Vntk cli will install nice and easy with:
@@ -406,6 +408,29 @@ var trainer = new crfsuite.Trainer()
 ```
 
 For detail documentation, click [here](https://github.com/vunb/node-crfsuite).
+
+# NLP API Server
+
+Follow these steps to quickly serve an NLP API server using vntk:
+
+```bash
+# Clone the repository
+git clone https://github.com/vunb/vntk
+
+# Move to source code folder
+cd vntk
+
+# Install dependencies
+npm install
+
+# Run NLP API server
+npm run server
+
+# Copy and paste the following link to your browser to see result in action
+# http://localhost:3000/api/tok/Phó Thủ tướng Vương Đình Huệ yêu cầu điều chỉnh tên gọi “trạm thu giá” BOT
+```
+
+Detail checkout: [./server](./server)
 
 # Contributing
 
