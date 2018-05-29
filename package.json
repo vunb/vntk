@@ -7,7 +7,8 @@
     "vntk": "./bin/vntk.js"
   },
   "scripts": {
-    "start": "node server/app.js",
+    "server": "node server/app.js",
+    "start": "npm run server",
     "test": "tape test/start.js | tap-spec"
   },
   "repository": {

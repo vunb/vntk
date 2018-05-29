@@ -12,9 +12,17 @@ Vietnamese NLP Toolkit for Node
 # Installation In A Nutshell
 
 1. Install [Node.js](http://nodejs.org/)
-2. Run: `$ npm install -g vntk`
+2. Run: `$ npm install vntk --save`
 
 If you are interested in contributing to **vntk**, or just hacking on it, then fork it away!
+
+# CLI Utilities
+
+Vntk cli will install nice and easy with:
+
+> npm install -g @vntk/cli
+
+Then you need to pay attention how to use these cli utilities to preprocess text from files, especially vietnamese that describe at the end of each apis usage. If you wish to improve the tool, please fork and make it better [here](https://github.com/vntk/vntk-cli).
 
 # API Usage
 
@@ -34,6 +42,7 @@ If you are interested in contributing to **vntk**, or just hacking on it, then f
   * [Naive Bayes](#bayes-classifier)
   * [fastText](#fasttext-classifier)
 * [9. Language identification](#9-language-identification)
+* [10. CRFSuite](#10-crfsuite)
 
 ## 1. Tokenizer
 
@@ -380,6 +389,23 @@ var langid = vntk.langid(new_model_path);
 List of supported languages
 
 > af als am an ar arz as ast av az azb ba bar bcl be bg bh bn bo bpy br bs bxr ca cbk ce ceb ckb co cs cv cy da de diq dsb dty dv el eml en eo es et eu fa fi fr frr fy ga gd gl gn gom gu gv he hi hif hr hsb ht hu hy ia id ie ilo io is it ja jbo jv ka kk km kn ko krc ku kv kw ky la lb lez li lmo lo lrc lt lv mai mg mhr min mk ml mn mr mrj ms mt mwl my myv mzn nah nap nds ne new nl nn no oc or os pa pam pfl pl pms pnb ps pt qu rm ro ru rue sa sah sc scn sco sd sh si sk sl so sq sr su sv sw ta te tg th tk tl tr tt tyv ug uk ur uz vec vep vi vls vo wa war wuu xal xmf yi yo yue zh
+
+
+## 10. CRFSuite
+
+For quick access to `CRFSuite` which shipped with `vntk` we can refer to it via following api.
+
+> var crfsuite = require('vntk').crfsuite()
+
+Then create a `Tagger` or `Trainer`:
+
+```js
+var crfsuite = require('vntk').crfsuite()
+var tagger = new crfsuite.Tagger()
+var trainer = new crfsuite.Trainer()
+```
+
+For detail documentation, click [here](https://github.com/vunb/node-crfsuite).
 
 # Contributing
 
