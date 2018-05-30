@@ -16,6 +16,7 @@ var dir = '../test/specs/';
   'bayes_classifier',
   'langid',
   'dictionary',
+  'crfsuite',
 ].forEach((script) => {
   require(path.join(dir, script));
 });

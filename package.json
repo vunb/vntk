@@ -1,13 +1,14 @@
 {
   "name": "vntk",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Vietnamese NLP Toolkit for Node",
   "main": "index.js",
   "bin": {
     "vntk": "./bin/vntk.js"
   },
   "scripts": {
-    "start": "node server/app.js",
+    "server": "node server/app.js",
+    "start": "npm run server",
     "test": "tape test/start.js | tap-spec"
   },
   "repository": {
@@ -27,12 +28,14 @@
   },
   "homepage": "https://github.com/vunb/vntk",
   "dependencies": {
+    "@kites/engine": "^0.1.3",
+    "@kites/express": "^0.1.4",
     "@vntk/dictionary": "^1.0.0",
     "async": "2.0.1",
     "commander": "2.9.0",
-    "crfsuite": "^0.9.3",
+    "crfsuite": "^0.9.4",
     "debug": "^3.1.0",
-    "fasttext": "^0.2.2",
+    "fasttext": "^0.2.3",
     "lodash": "4.15.0",
     "title-case": "^2.1.1"
   },

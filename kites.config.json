@@ -1,0 +1,11 @@
+{
+    "extensionsLocationCache": true,
+    "httpPort": 3000,
+    "logger": {
+        "console": {
+            "transport": "console",
+            "level": "info"
+        }
+
+    }
+}
