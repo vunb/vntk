@@ -18,33 +18,57 @@ If you are interested in contributing to **vntk**, or just hacking on it, then f
 
 Jump to guide: [How to build an NLP API Server using Vntk](#nlp-api-server).
 
+# Documentation
+
+* [**CLI Utilities**](#cli-utilities)
+  * [1. Installation](#1-installation)
+  * [2. Usage Example](#2-usage-example)
+* [**API Usage**](#api-usage)
+  * [1. Tokenizer](#1-tokenizer)
+  * [2. Word Segmentation](#2-word-segmentation)
+  * [3. POS Tagging](#3-pos-tagging)
+  * [4. Chunking](#4-chunking)
+  * [5. Named Entity Recognition](#5-named-entity-recognition)
+    * [PER LOC ORG](#ner-per-loc-org)
+    * [Date time](#ner-date-time)
+    * [Custom NER](#ner-custom)
+  * [6. Utility](#6-utility)
+    * [Dictionary](#dictionary)
+    * [Clean html](#clean-html)
+  * [7. TF-IDF](#7-tf-idf)
+  * [8. Classifiers](#8-classifiers)
+    * [Naive Bayes](#bayes-classifier)
+    * [fastText](#fasttext-classifier)
+  * [9. Language identification](#9-language-identification)
+  * [10. CRFSuite](#10-crfsuite)
+* [**NLP API Server**](#nlp-api-server)
+* [**Contributing**](#contributing)
+* [**License**](#license)
+
 # CLI Utilities
+
+## 1. Installation
 
 Vntk cli will install nice and easy with:
 
 > npm install -g @vntk/cli
 
-Then you need to pay attention how to use these cli utilities to preprocess text from files, especially vietnamese that describe at the end of each apis usage. If you wish to improve the tool, please fork and make it better [here](https://github.com/vntk/vntk-cli).
+Then you need to pay attention to how to use these cli utilities to preprocess text from files, especially vietnamese that **describe at the end of each apis usage**. If you wish to improve the tool, please fork and make it better [here](https://github.com/vntk/vntk-cli).
+
+## 2. Usage Example
+
+After the CLI has installed, you need to open your `Terminal` (or Command Prompt on Windows) and type command you need to use.
+
+For instance, the following command will open a file and process it by using Word Tokenizer to tokenize each lines in the file.
+
+```bash
+# Process a text file or a folder
+$ vntk ws input.txt --output output.txt
+
+# Output file will contain lines which have tokenized.
+```
 
 # API Usage
-
-* [1. Tokenizer](#1-tokenizer)
-* [2. Word Segmentation](#2-word-segmentation)
-* [3. POS Tagging](#3-pos-tagging)
-* [4. Chunking](#4-chunking)
-* [5. Named Entity Recognition](#5-named-entity-recognition)
-  * [PER LOC ORG](#ner-per-loc-org)
-  * [Date time](#ner-date-time)
-  * [Custom NER](#ner-custom)
-* [6. Utility](#6-utility)
-  * [Dictionary](#dictionary)
-  * [Clean html](#clean-html)
-* [7. TF-IDF](#7-tf-idf)
-* [8. Classifiers](#8-classifiers)
-  * [Naive Bayes](#bayes-classifier)
-  * [fastText](#fasttext-classifier)
-* [9. Language identification](#9-language-identification)
-* [10. CRFSuite](#10-crfsuite)
 
 ## 1. Tokenizer
 
@@ -68,8 +92,8 @@ Command line: `vntk tok <file_name.txt>`
 
 ## 2. Word Segmentation
 
-> Vietnamese Word Segmentation using Conditional Random Fields, called: `WordTokenizer`.  
-> WordTokenizer helps break text into arrays of words!
+> Vietnamese Word Segmentation using Conditional Random Fields, called: `Word Tokenizer`.  
+> Word Tokenizer helps break text into arrays of words!
 
 ```js
 var vntk = require('vntk');
@@ -256,7 +280,7 @@ vntk clean <file_name1.txt>
 [Term Frequency–Inverse Document Frequency (tf-idf)](http://en.wikipedia.org/wiki/Tf%E2%80%93idf) is implemented to determine how important a word (or words) is to a document relative to a corpus. See following example.
 
 ```js
-var vntk = require('./lib/vntk');
+var vntk = require('vntk');
 var tfidf = new vntk.TfIdf();
 
 tfidf.addDocument('Đại tướng Trần Đại Quang - Ủy viên Bộ Chính trị, Bí thư Đảng ủy Công an Trung ương, Bộ trưởng Bộ Công an.');
