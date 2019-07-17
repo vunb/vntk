@@ -1,8 +1,8 @@
 'use strict';
 var test = require('tape'),
     path = require('path'),
-    vntk = require('../../lib/vntk'),
-    crfsuite = vntk.crfsuite();
+    crfsuite = require('../../lib/crfsuite');
+    // crfsuite = vntk.crfsuite();
 
 test('crfsuite load trained model', function (t) {
     t.plan(1);
