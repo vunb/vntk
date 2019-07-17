@@ -11,6 +11,19 @@ var _ = require("lodash")
     , package = require("../package.json")
     ;
 
+/**
+ * Warning text
+ */
+console.log(`
+   ╭────────────────────────────────────────────────────────────────╮
+   │                                                                │
+   │       Vntk has a new separator repository and package.         │
+   │   Repository: https://github.com/vntk/vntk-cli:                │
+   │        Please run: npm install -g @vntk/cli to update!         │
+   │                                                                │
+   ╰────────────────────────────────────────────────────────────────╯
+`)
+
 var NOOP = function () { };
 var help = function () {
     // Allow us to display help(), but omit the wildcard (*) command.

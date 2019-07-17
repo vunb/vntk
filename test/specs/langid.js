@@ -1,7 +1,6 @@
 'use strict';
 const test = require('tape');
-const path = require('path');
-const langid = require('../../lib/vntk').langid();
+const langid = require('../../lib/langid');
 
 test('vntk language identification', function (t) {
     t.plan(3);

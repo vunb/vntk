@@ -1,20 +1,20 @@
 language: node_js
 
+git:
+  depth: 5
+
 os:
 - linux
 #- osx
 
 node_js:
-- '4'
-- '5'
-- '6'
-- '7'
 - '8'
-- '9'
+- '10'
+- '12'
 
 before_install:
-# update npm to latest
-- npm install -g npm@5.7.1
+# update npm to latest?
+# - npm install -g npm@5.7.1
 
 # show product version
 - nvm --version
