@@ -15,7 +15,7 @@ install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
   # update npm to latest
-  - npm install -g npm@5.7.1
+  # - npm install -g npm@5.7.1
   # install modules
   - npm install
 
