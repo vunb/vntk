@@ -28,8 +28,6 @@
   },
   "homepage": "https://github.com/vunb/vntk",
   "dependencies": {
-    "@kites/engine": "^0.1.3",
-    "@kites/express": "^0.1.4",
     "@vntk/dictionary": "^1.0.0",
     "async": "2.0.1",
     "commander": "2.9.0",
@@ -40,6 +38,9 @@
     "title-case": "^2.1.1"
   },
   "devDependencies": {
+    "@kites/common": "^1.1.9",
+    "@kites/core": "^1.1.9",
+    "@kites/express": "^1.1.9",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.0"
   },
