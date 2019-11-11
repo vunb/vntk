@@ -1,6 +1,6 @@
 {
   "name": "vntk",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Vietnamese NLP Toolkit for Node",
   "main": "index.js",
   "bin": {
