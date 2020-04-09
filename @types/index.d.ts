@@ -1,3 +1,5 @@
+import CrfsuiteCore from "crfsuite";
+
 declare namespace VNTK {
   interface Tokenizer {
     tokenize(text: string): string[];
@@ -52,14 +54,9 @@ declare namespace VNTK {
     getLanguages(document: string, umberLanguagues: number): Promise<LanguageIdentificationResult[]>;
   }
 
-  namespace Crfsuite {
-    class Tagger {
-      public constructor();
-    }
-
-    class Trainer {
-      public constructor();
-    }
+  interface Crfsuite {
+    Tagger: CrfsuiteCore.Tagger;
+    Trainer: CrfsuiteCore.Trainer;
   }
 }
 
@@ -92,8 +89,5 @@ declare module "vntk" {
 
   function langid(newModelPath?: string): VNTK.LanguageIdentification;
 
-  function crfsuite(): {
-    Tagger: any;
-    Trainer: any;
-  };
+  function crfsuite(): VNTK.Crfsuite;
 }
