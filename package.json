@@ -3,6 +3,7 @@
   "version": "1.4.3",
   "description": "Vietnamese NLP Toolkit for Node",
   "main": "index.js",
+  "types": "./@types/index.d.ts",
   "bin": {
     "vntk": "./bin/vntk.js"
   },
