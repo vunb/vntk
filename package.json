@@ -48,6 +48,7 @@
   "files": [
     "bin",
     "lib",
+    "@types",
     "index.js",
     "README.md"
   ]
