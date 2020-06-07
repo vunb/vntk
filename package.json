@@ -39,9 +39,9 @@
     "title-case": "^2.1.1"
   },
   "devDependencies": {
-    "@kites/common": "^1.1.9",
-    "@kites/core": "^1.1.9",
-    "@kites/express": "^1.1.9",
+    "@kites/common": "^1.2.5",
+    "@kites/core": "^1.2.5",
+    "@kites/express": "^1.2.5",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.0"
   },
